@@ -1,0 +1,10 @@
+{
+    "batch_size": 12,
+    "frozen_epochs": 5,
+    "unfrozen_epochs": 35,
+    "learning_rate_stage1": 1e-3,
+    "learning_rate_stage2": 3e-4,
+    "weight_decay": 1e-3,
+    "patience_lr": 3,
+    "patience_es": 5
+}

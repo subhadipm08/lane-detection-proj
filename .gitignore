@@ -1,0 +1,26 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual Environment
+.venv/
+venv/
+ENV/
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+
+# Project specific data and outputs
+data/
+logs/
+.DS_Store
+
+# Ignore all checkpoint contents by default, except best_model.keras
+checkpoints/**/*
+!checkpoints/**/
+!checkpoints/**/best_model.keras
+
