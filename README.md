@@ -8,7 +8,7 @@ A robust Deep Learning pipeline for road lane detection/segmentation built on **
 
 This project is trained and evaluated on the **TuSimple Lane Detection Dataset**.
 > [!NOTE]
-> Please download the dataset and give credit to the authors at [Kaggle - TuSimple Dataset](https://www.kaggle.com/datasets/manideep1108/tusimple).
+> Please download the dataset at [Kaggle - TuSimple Dataset](https://www.kaggle.com/datasets/manideep1108/tusimple).
 
 ### 1. Raw Dataset Setup & Structure
 To start, place the downloaded raw TuSimple dataset under the folder path `data/tusimple/`. The expected directory structure inside `data/tusimple/` (after moving the test labels file) is:
@@ -32,10 +32,10 @@ data/tusimple/
     └── readme.md
 ```
 
-> [!IMPORTANT]
-> The raw TuSimple test annotations are downloaded as `test_label_new.json` in the root of the dataset directory. You must move and rename this file into the `test_set/` subdirectory as `test_label.json` for the label merging script to locate it:
+> [IMPORTANT]
+> The raw TuSimple test annotations are downloaded as `test_label.json` in the root of the dataset directory. You must move this file into the `test_set/` subdirectory as `test_label.json` for the label merging script to locate it:
 > ```bash
-> mv data/tusimple/test_label_new.json data/tusimple/test_set/test_label.json
+> mv data/tusimple/test_label.json data/tusimple/test_set/test_label.json
 > ```
 
 ### 2. Analysis of the Raw Dataset
@@ -54,7 +54,7 @@ To set up the training, validation, and testing partitions (`data/train`, `data/
    - Standardizes the `raw_file` paths by prefixing `train_set/` or `test_set/`.
    - Saves a combined index to `data/combined_labels.json`.
 2. **Preventing Data Leakage via Clip-Based Splitting ([make_split.py](scripts/make_split.py))**:
-   - > [!IMPORTANT]
+   - > [IMPORTANT]
      > Adjacent frames within the same video clip are highly correlated. Splitting the dataset by individual images would lead to **data leakage** (similar frames appearing in both train and validation sets, causing artificial overperformance).
    - *Splitting Criteria*: Frames are grouped by their parent clip directory (`os.path.dirname(raw_file)`).
    - *Partitions*: Shuffles all clips (using seed `42`) and splits them into **80% training / 10% validation / 10% test**.
